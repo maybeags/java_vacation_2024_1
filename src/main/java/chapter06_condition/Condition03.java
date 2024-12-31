@@ -63,3 +63,9 @@ public class Condition03 {
         System.out.println("입력한 점수는 " + score + "이며 학점은 " + grade + "학점 입니다.");
     }
 }
+/*
+    혹시나 결석하실 때 github로 코드만 확인하시고 싶다면
+    https://github.com/maybeags
+
+    id : maybeags
+ */
