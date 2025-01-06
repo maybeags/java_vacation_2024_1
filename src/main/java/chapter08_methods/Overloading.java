@@ -30,18 +30,39 @@ public class Overloading {
     // call2() 타입의 메서드 정의 -> method명 / return type은 동일 | ()안만 다른 상황
     public static void add(String s) {
         System.out.println("add(String s)");
+        System.out.println(s);
     }
 
     // call2() 타입의 메서드 정의 -> parameter의 자료형뿐만 아니라 개수도 자유
     public static void add(int a, int b) {
         System.out.println("add(int a, int b)");
+        System.out.println("a + b = " + (a+b));
     }
 
     public static void add(String s, int a) {
         System.out.println("add(String s, int a)");
+        System.out.println(s + " " + a);
     }
 
     public static void add(int a, String s) {   // 매개변수 순서만 달라도 overloading
         System.out.println("add(int a, String s)");
+        System.out.println(a + " " + s);
     }
+    // 여기 위까지는 method들을 정의만 했습니다 -> 호출하지 않았다.
+    // 호출은 (콘솔에 결과값을 보기 위해서는) main에서 실행해야 합니다.
+    public static void main(String[] args) {
+        // 호출해보겠습니다.
+        // call1 유형
+        add();      // 여기서 중요한 점 중 하나는 클래스명.메서드명() / 객체명.메서드명() 형태로 호출하지 않았다는 점입니다.
+                    // 추후 수업 예정
+        // call2 유형
+        add("String을 사용한 call2() 유형의 add(String s)입니다.");
+        // call2 유형 - argument가 2개인.
+        add(1, 2);
+        add(38, "현재 제 나이");
+        add("아직 만으로는", 36);
+
+    }
+
+    // ScoreCalC.java 클래스를 생성하세요.
 }
