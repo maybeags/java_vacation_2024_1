@@ -53,5 +53,26 @@ public class Constructor {
     // sout(constructor3.name)을 출력하세요.
     Constructor(int number, String title) {
         // 여기에 알아서 코드 입력하시고, 그 다음에 ConstructorMain 나머지 지시사항을 작성하시면 되겠죠.
+        System.out.println("AllArgsConstructor");
+        this.num = number;
+        this.name = title;
     }
+
+    // 이상의 코드들은 전부 생성자와 관련돼있고 이는 속성을 대입하는 방식이지
+    // 객체의 행위(method)에 대한 정의는 하지 않았기 때문에
+    // 이하에서 정의할 예정 -> 여기서는 객체의 필드 정보들을 출력하는 메서드를 정의할겁니다.
+
+    // 그럼 얘는 call1() 형식으로 정의된거라고 볼 수 있습니다.
+    void showInfo() {
+        System.out.println("해당 객체의 num 값 : " + num);
+        System.out.println("해당 객체의 name 값 : " + name);
+    }
+
+    // call3()형식으로 정의하면
+    String showInfo2() {
+        return "해당 객체의 num 값 : " + num + "\n" + "해당 객체의 name 값 : " + name;
+    }
+
+    // constructor2를 기준으로 showInfo()와 showInfo2()를 ConstructorMain에서 호출하고 콘솔창에 정보가
+    // 출력되도록 작성하시오.
 }

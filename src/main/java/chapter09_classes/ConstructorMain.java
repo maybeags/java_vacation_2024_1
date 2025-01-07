@@ -23,6 +23,14 @@ public class ConstructorMain {
 
         System.out.println(constructor2.name);
 
+        // AllArgsConstructor를 활용한 객체 생성
+        Constructor constructor3 = new Constructor(10,"김철수");
+        System.out.println(constructor3.num);
+        System.out.println(constructor3.name);
 
+
+        constructor2.showInfo();
+        System.out.println();
+        System.out.println(constructor2.showInfo2());
     }
 }
