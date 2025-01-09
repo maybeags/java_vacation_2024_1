@@ -49,7 +49,125 @@ BankAccessModifierMain.java 클래스 생성
                             출금 성공! 현재 잔액 : 40000원
                     showAccountInfo()
                         - 콘솔창에
-                            안근수 님의 계좌 번호는 123456789이며, 현재 잔액은 100000원입니다.
+                            안근수 님의 계좌 번호는 1234567이며, 현재 잔액은 100000원입니다.
  */
 public class BankAccessModifier {
+    // Setter / Getter를 통해서 입력하고, 조회할 예정이기 때문에 접근지정자를 설정
+    private int accountNumber;
+    private String accountHolder;
+    private int balance;
+    private int pinNumber;
+    // updated version -> 1. balance, 입금 혹은 출금시 큰 금액 단위로 하기 위해 : int -> Long
+    private Long balanceLong;
+
+    // 생성자들 만들어야 합니다.
+
+    public BankAccessModifier() {}
+
+    public BankAccessModifier(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public BankAccessModifier(int accountNumber, String accountHolder) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+    }
+
+    public BankAccessModifier(int accountNumber, String accountHolder, Long balanceLong) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balanceLong = balanceLong;
+    }
+
+    public BankAccessModifier(int accountNumber, String accountHolder, Long balanceLong, int pinNumber) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balanceLong = balanceLong;
+        this.pinNumber = pinNumber;
+    }
+
+    // Setter / Getter 지정해야 합니다 -> 검증 로직 필요한 경우 있습니다.
+
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public void setAccountHolder(String accountHolder) {
+        this.accountHolder = accountHolder;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {       // 0 미만은 입력되지 않게끔 로직 작성
+        if (balance < 0) {
+            System.out.println("불가능한 입력 금액입니다.");
+        } else {
+            this.balance = balance;
+        }
+    }
+
+    public int getPinNumber() {
+        return pinNumber;
+    }
+
+    public void setPinNumber(int pinNumber) {   // 0000 ~ 9999까지만 입력되도록 로직 작성
+        if (pinNumber > -1 && pinNumber < 9999) {
+            this.pinNumber = pinNumber;
+        } else {
+            System.out.println("불가능한 비밀번호입니다.");
+        }
+    }
+
+    // Long version Setter / Getter
+
+
+    public Long getBalanceLong() {
+        return balanceLong;
+    }
+
+    public void setBalanceLong(Long balanceLong) {
+        if (balanceLong < 0) {
+            System.out.println("불가능한 입력 금액입니다.");
+        } else {
+            this.balanceLong = balanceLong;
+        }
+    }
+
+    // deposit / withdraw 메서드를 정의
+    // call2() 유형 메서드 정의 -> 콘솔창에 출력할 예정
+    public void deposit(Long amount, int inputPinNumber){
+        // amount이 0 초과 // inputPinNumber == pinNumber
+        if (amount > 0 && inputPinNumber == pinNumber) {
+            this.balance += amount;
+            System.out.println("입금 성공! 현재 잔액 : " + this.balance);
+        } else {
+            System.out.println("입금 불가입니다.");
+        }
+    }
+
+    public void withdraw(Long amount, int inputPinNumber){
+        // amount가 0 초과일 것 / 비밀번호가 일치할 것 / 잔액이 0 이상일 것
+        if (amount > 0 && inputPinNumber == pinNumber && (this.balance-amount) >= 0) {
+            this.balance -= amount;
+            System.out.println("출금 성공! 현재 잔액 : " + this.balance);
+        } else {
+            System.out.println("출금 불가입니다.");
+        }
+    }
+
+    // call3() 유형 메서드 정의
+    public String showAccountInfo() {
+        return this.accountHolder + " 님의 계좌 번호는 " + this.accountNumber + "이며, 현재 잔액은 " + this.balance + "원입니다.";
+    }
 }
