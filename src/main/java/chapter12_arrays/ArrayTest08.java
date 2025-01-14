@@ -47,10 +47,23 @@ public class ArrayTest08 {
 
         // 난수를 배열에 집어넣는 방법
         int n = 0;
+        int number;
+        boolean duplicate = false;
         while(n < 5) {
             int[] lottoNumbers = new int[6];
             for(int i = 0 ; i < lottoNumbers.length ; i++) {
-                lottoNumbers[i] = random.nextInt(45) + 1;
+//                lottoNumbers[i] = random.nextInt(45) + 1;         -> 바로 대입을 한게 아니라
+                number = random.nextInt(45) + 1;
+                // 이전에 생성된 난수들을 반복문을 통해서 확인하는 과정
+                for(int j = 0; j < i ; j++) {
+                    if(lottoNumbers[j] == number) {
+//                        break;                                   // -> 아예 반복문이 끝납니다.
+                          duplicate = true;                       // 중복인걸 확인을 했다면 다시 nextInt()를 호출해야 함.
+                    }
+                }
+
+                // 중복이 되지 않으면 그때 lottoNumbers[i] = number 대입해주는거
+                // 즉 중복이 되었다면 다시 뽑을 수 있게끔 해야 하는데, 그 방법이 무엇일까.
             }
             // 오름차순 정리
             Arrays.sort(lottoNumbers);
