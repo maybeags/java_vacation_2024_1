@@ -12,6 +12,19 @@ public class PowerButton extends Button{
 
     @Override
     public void onPressed() {
-        // 나머지는 20250116 작성하겠습니다.
+        if(status) {
+            status = false;
+            System.out.println("전원을 끕니다.");
+        } else {
+            status = true;
+            System.out.println("전원을 켭니다.");
+        }
     }
 }
+/*
+    VolumeUpButton
+    VolumeDownButton 클래스들을 만드세요
+
+
+
+ */
