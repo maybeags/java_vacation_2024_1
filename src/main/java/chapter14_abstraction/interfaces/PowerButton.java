@@ -9,6 +9,7 @@ package chapter14_abstraction.interfaces;
 public class PowerButton extends Button{
 
     private boolean status;
+    private String name;
 
     @Override
     public void onPressed() {

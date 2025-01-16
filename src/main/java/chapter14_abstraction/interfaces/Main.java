@@ -42,8 +42,94 @@ package chapter14_abstraction.interfaces;
                 5. 자동 public : 인터페이스의 메서드들은 자동으로 public이며, 메서드
                     선언에 접근 제어자를 명시할 필요가 없다
                     Java 8 이후에 default, static 메서드를 사용할 수 있긴 합니다.
-
-
  */
 public class Main {
+    public static void main(String[] args) {
+        // RemoteController 클래스의 객체 생성
+        RemoteController remoteController = new RemoteController(
+                new PowerButton(), new VolumeDownButton(),
+                new VolumeUpButton(), new ChannelDownButton(),
+                new ChannelUpButton());
+        /*
+        RemoteController remoteController = new RemoteController();까지 입력했을 경우
+        RemoteController.java 내부에 생성자는 AllArgsConstructor이기 때문에 오류 발생합니다.
+        그렇다면 내부에 들어가야 할 argument들을 채울 필요가 있습니다.
+
+        여기서 여태까지와 다른 방식으로 argument들을 채우기 때문에 유의해야 합니다.
+
+        RemoteController의 객체를 생성 했고, 객체명이 remoteController입니다.
+        클래스명1 객체명 = new 생성자(argument1, argument2, ...);
+        클래스명1 객체명 = new 생성자(new 클래스명2(), new 클래스명3());
+
+        이상의 경우, new 클래스명2(), new 클래스명3()을 통해 객체 생성은 이미 '완료'됐습니다
+            -> 생성자의 정의를 확인하세요.
+        다만 argument로 들어가있는 객체들은 '객체명이 없다'
+     */
+//        remoteController.onPressedPowerButton();
+//        remoteController.onUpVolumeUpButton();
+//        remoteController.onPressedVolumeUpButton();
+//        remoteController.onDownChannelDownButton();
+//        remoteController.onPressedChannelDownButton();
+
+        remoteController.onPressedPowerButton();
+        remoteController.onPressedPowerButton();
+        System.out.println();
+        remoteController.onPressedChannelUpButton();
+        remoteController.onPressedChannelDownButton();
+        remoteController.onUpChannelUpButton();
+        remoteController.onDownChannelDownButton();
+
+    /*
+        1. ChannelDownButton, ChannelUpButton 클래스를 만들고 method들을 구현하세요. -> extends
+        2. RemoteController.java의 필드에 위에 만든 클래스들의 객체를 추가하세요.
+        3. RemoteController의 AllArgsConstructor가 2를 추가하게 되면 깨지게 되므로 수정하세요.
+        4. RemoteController.java에 ChannelDown/UpButton과 관련된 method들 추가하세요.
+        5. Main으로 넘어와서, 채널 한 칸 내리기, 계속 내리기, 한 칸 올리기, 계속 올리기를
+            실행하세요.
+
+            실행 예
+            전원이 켜졌습니다.
+            전원이 꺼졌습니다.
+
+            채널을 한 칸 내립니다.
+            채널을 한 칸 올립니다.
+            채널을 계속 내립니다.
+            채널을 계속 올립니다.
+
+
+            지시 사항 풀이법
+                1) ChannelUpButton 클래스를 만드세요 ->
+     */
+
+        /*
+            과제 2
+
+            TemparatureDownButton, TemparatureUpButton, AirConditionerController.java 클래스를 만들고
+            정의해서
+            Main에 AirConditionerController의 객체를 생성한 후
+
+            전원이 켜졌습니다.
+
+            온도를 한 칸 내립니다.
+            온도를 계속 내립니다.
+
+            온도를 한 칸 올립니다.
+            온도를 계속 올립니다.
+
+            전원이 꺼졌습니다.
+         */
+        // 객체 생성
+        AirConditionerController airConditionerController = new AirConditionerController(
+                new PowerButton(), new TemperatureDownButton(), new TemperatureUpButton());
+
+        airConditionerController.onPressedPowerButton();
+        System.out.println();
+        airConditionerController.onPressedTemperatureDown();
+        airConditionerController.onDownTemperatureDown();
+        System.out.println();
+        airConditionerController.onPressedTemperatureUp();
+        airConditionerController.onUpTemperatureUp();
+        System.out.println();
+        airConditionerController.onPressedPowerButton();
+    }
 }
