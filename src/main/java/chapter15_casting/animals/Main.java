@@ -43,10 +43,22 @@ package chapter15_casting.animals;
                     확인 못하고 있다가 갑자기 다운캐스팅 튀어나와서 초심자들이 코드 읽는게 어려울 때가
                     있습니다.
 
+        instanceof 연산자 : Java에서 객체의 실제 타입을 검사하는 데 사용
+            (어떤 클래스의 객체인지를 확인하는 용도)
+            -> 주로 다운캐스팅의 안정성을 확보하기 위해서 사용함.
 
+            형식 :
+                object(객체명) instanceof ClassName(클래스명) -> 1 + 2라고 생각하라고 어제 수업함
+
+                object : 검사하려는 객체명
+                ClassName : 객체가 검사될 클래스 / 인터페이스
+
+                return값은 object가 ClassName의 인스턴스이거나 하위 클래스의 인스턴인 경우 true,
+                아니면 false
  */
 public class Main {
     public static void main(String[] args) {
+        //Dog 객체 생성
 
     }
 }
