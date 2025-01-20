@@ -1,5 +1,7 @@
 package chapter15_casting.centralcontrol;
 
+import java.util.Arrays;
+
 public class CentralControl {
 
     // 필드 선언
@@ -73,6 +75,30 @@ public class CentralControl {
                 continue;
             }
             device.off();
+        }
+    }
+
+    public void displayInfo() {
+        // 배열 전체 출력 -> null [ Computer, null, ... ] 같이 출력될거라는 잠재적인 문제가 있습니다.
+        // Arrays.toString을 사용해서 배열 전체 출력하여 deviceArray를 콘솔창에 출력하면 됩니다.
+        //
+        System.out.println("현재 연결된 장치 목록 : ");
+        System.out.println(Arrays.toString(deviceArray));
+    }
+
+    public void displayInfo2() {
+        // 반복문을 돌면서 내부 element 들을 확인할 수 있어야하고, 만약에 element가 null 이라면
+        // indexnumber = 2가 null이라면 슬롯[3]번 : 비어있음 으로 출력하는 등 추가적인 메서드 적용이 가능.
+        // 클래스명만 뽑아와서 보여주는 방법은 addDevice() 메서드에 힌트가 있습니다.
+        System.out.println("현재 연결된 장치 목록 : ");
+        // 일반 for 문
+        for (int i = 0 ; i < deviceArray.length ; i++) {
+            // 혹시 null이 있는지 확인하기 위한 조건문 작성
+            if (deviceArray[i] == null) {
+                System.out.println("슬롯 [" + (i+1) + "]번 : 비어있음");
+                continue;       // 현재 반복문 종료, 다음 반복문 처음부터 실행 즉, 이하의 반복문은 실행되지 않음
+            }
+            System.out.println("슬로 [" + (i+1) + "]번 : " + deviceArray[i].getClass().getSimpleName());
         }
     }
 

@@ -35,10 +35,14 @@ public class Main {
             1. CentralControl에 displayinfo()를 call1() 타입으로 정의해서
                 centralControl 객체 내에 있는 필드인 deviceArray에 들어있는 element를 조회할 수 있도록
                 코드를 작성하시오.
+                실행 예
+                현재 연결된 장치 목록
+                [ Computer, LED, Speaker, Speaker, null, null ] -> 배열 전체 출력
 
             2. Tv 클래스 및 Mouse 클래스를 작성하고
                 Main 단계에서 centralControl 객체에 집어넣으시고,
                 .powerOn() 시켜보세요.
+                ---------이까지 과제 작성하시는데 맥시멈 10시 10분에는 전체 풀이가 끝나있을 겁니다--------
 
             3. 이상까지 하게되면 Computer/Speaker/LED/Tv/Mouse라는 각 객체가 Power로 암시적 업캐스팅을 하여
                 오버라이드된 메서드들을 일괄적으로 실행시킨 사례에 대한 공부가 끝이 납니다.
@@ -46,6 +50,8 @@ public class Main {
                 고유 메서드들을 실행시킬 수 있도록 프로그램을 버전업할 예정입니다.
 
          */
-
+        centralControl.displayInfo();
+        //[chapter15_casting.centralcontrol.Computer@7adf9f5f, chapter15_casting.centralcontrol.LED@85ede7b, chapter15_casting.centralcontrol.Speaker@5674cd4d, chapter15_casting.centralcontrol.Speaker@63961c42, null, null]
+        // ↑ 배열 내부에 객체가 있기 때문에 이상의 메서드로는 객체의 주소만 출력된다는 문제점 있음 -> 다음 챕터에서 해결
     }
 }
