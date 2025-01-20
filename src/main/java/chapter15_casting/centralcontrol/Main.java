@@ -64,5 +64,7 @@ public class Main {
         centralControl.displayInfo2();
         System.out.println("-----displayInfo3()-----");
         centralControl.displayInfo3();
+        System.out.println("-----performSpecificMethod()-----");
+        centralControl.performSpecificMethod();
     }
 }

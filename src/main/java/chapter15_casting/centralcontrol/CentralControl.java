@@ -122,6 +122,37 @@ public class CentralControl {
     }
 
 
+    // 배열 내부를 돌면서 요소의 고유 메서드들을 호출하는 메서드
+    public void performSpecificMethod() {
+        // 향상된 for문으로 작성하겠습니다.
+        for (Power device : deviceArray) {
+            if(device instanceof Computer) {
+                // deviceArray 내부에 있는 요소라면 기본적으로 Power 인터페이스의 객체
+                // (그런데 인터페이스는 객체 생성 불가능)이거나 혹은
+                // Power 인터페이스를 상속 받은 클래스의 객체에 해당합니다.
+                // 위의 조건문은 배열 내부의 요소가 Computer 클래스의 인스턴스라면
+                // 이하의 코드가 실행됩니다 -> 명시적인 다운 캐스팅
+                Computer computer = (Computer) device;
+                // 다운 캐스팅이 이루어졌기 때문에 Computer 클래스의 고유 메서드인
+                computer.compute();
+                // 가 실행 가능
+            } else if (device instanceof Mouse) {
+                Mouse mouse = (Mouse) device;
+                mouse.leftClick();
+            } else if ( device instanceof LED) {
+                LED led = (LED) device;
+                led.changeColor();
+            } else if (device instanceof Speaker) {
+                Speaker speaker = (Speaker) device;
+                speaker.changeMode();
+            } else if (device instanceof Tv) {
+                Tv tv = (Tv) device;
+                tv.changeChannel();
+            }
+
+        }
+    }
+
 
 
 
