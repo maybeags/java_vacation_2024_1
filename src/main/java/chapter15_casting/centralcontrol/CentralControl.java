@@ -92,16 +92,34 @@ public class CentralControl {
         // 클래스명만 뽑아와서 보여주는 방법은 addDevice() 메서드에 힌트가 있습니다.
         System.out.println("현재 연결된 장치 목록 : ");
         // 일반 for 문
+        System.out.print("[ ");
         for (int i = 0 ; i < deviceArray.length ; i++) {
             // 혹시 null이 있는지 확인하기 위한 조건문 작성
             if (deviceArray[i] == null) {
-                System.out.println("슬롯 [" + (i+1) + "]번 : 비어있음");
+//                System.out.println("슬롯 [" + (i+1) + "]번 : 비어있음");
+                System.out.print("null, ");
                 continue;       // 현재 반복문 종료, 다음 반복문 처음부터 실행 즉, 이하의 반복문은 실행되지 않음
             }
-            System.out.println("슬로 [" + (i+1) + "]번 : " + deviceArray[i].getClass().getSimpleName());
+//            System.out.println("슬로 [" + (i+1) + "]번 : " + deviceArray[i].getClass().getSimpleName());
+            System.out.print(deviceArray[i].getClass().getSimpleName() + ", ");
         }
+        System.out.println(" ]");
     }
 
+    public void displayInfo3() {
+        int i = 1;              // 지역변수 i 선언
+        //향상된 for문으로 작성하시오.
+        for ( Power device : deviceArray ) {
+            // 만약에 device가 null이라면에 해당하는 조건문 작성
+            if ( device == null ) {
+                System.out.println("슬롯 [ " + i + " ] 번 : 비어있음");
+                continue;
+            }
+            // 조건문이 실행되지 않았다면 출력되어야 할 출력문
+            System.out.println("슬롯 [ " + i + " ] 번 : " + device.getClass().getSimpleName());
+            i++;
+        }
+    }
 
 
 

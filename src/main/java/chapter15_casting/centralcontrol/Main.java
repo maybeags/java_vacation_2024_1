@@ -14,6 +14,10 @@ public class Main {
         Speaker speaker1 = new Speaker();
         Speaker speaker2 = new Speaker();           // 실패 사례용
 
+        // Mouse 객체를 만들어야, Centralcontrol 객체에 집어넣고, 켜고 끄는 것이 가능
+        Mouse mouse1 = new Mouse();
+        Tv tv1 = new Tv();
+
         CentralControl centralControl = new CentralControl(new Power[6]);   // 이거 interfaces에서 배운 방식인데
         // 생성자의 argument로 'new 클래스()' 즉, 생성자를 집어넣은 케이스를 한 번 더 응용해서 걔가 배열이기까지 합니다.
 
@@ -22,6 +26,9 @@ public class Main {
         centralControl.addDevice(led1);
         centralControl.addDevice(speaker1);
         centralControl.addDevice(speaker2);         // 실패 사례용으로 코드 하나 작성했습니다.
+        centralControl.addDevice(mouse1);
+        centralControl.addDevice(tv1);
+
 
 //        speaker2.on();
 //        speaker2.off();
@@ -53,5 +60,9 @@ public class Main {
         centralControl.displayInfo();
         //[chapter15_casting.centralcontrol.Computer@7adf9f5f, chapter15_casting.centralcontrol.LED@85ede7b, chapter15_casting.centralcontrol.Speaker@5674cd4d, chapter15_casting.centralcontrol.Speaker@63961c42, null, null]
         // ↑ 배열 내부에 객체가 있기 때문에 이상의 메서드로는 객체의 주소만 출력된다는 문제점 있음 -> 다음 챕터에서 해결
+        System.out.println("-----displayInfo2()-----");
+        centralControl.displayInfo2();
+        System.out.println("-----displayInfo3()-----");
+        centralControl.displayInfo3();
     }
 }
