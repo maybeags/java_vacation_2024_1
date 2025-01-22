@@ -25,7 +25,7 @@ public class PersonMain {
         System.out.println();
         System.out.println(person4);
 
-        PersonLombok2 person5 = new PersonLombok2("김일");
+        PersonLombok2 person5 = new PersonLombok2("김일", 21);
         System.out.println();
         System.out.println(person5);
     }
