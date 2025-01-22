@@ -20,11 +20,11 @@ public class UserEntityMain {
         // UserEntityLombok 객체 생성
         UserEntityLombok user2 = new UserEntityLombok();
 
-//        user2.setUsername("abcd");
-//        user2.setPassword("4321");
-//        user2.setEmail("b@test.com");
-//        user2.setName("이이");
-//        user2.setAge(13);
+        user2.setUsername("abcd");
+        user2.setPassword("4321");
+        user2.setEmail("b@test.com");
+        user2.setName("이이");
+        user2.setAge(13);
 
     }
 }
