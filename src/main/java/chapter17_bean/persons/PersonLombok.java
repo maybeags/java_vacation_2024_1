@@ -1,5 +1,13 @@
 package chapter17_bean.persons;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@RequiredArgsConstructor    // 얘가 적용되니까 final 밑에 빨간줄 사라졌습니다.
+// -> final 붙은 필드를 필수적으로 포함한 생성자를 만든다는 의미
 public class PersonLombok {
     private final String name;
     private int age;

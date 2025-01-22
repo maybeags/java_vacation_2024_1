@@ -21,7 +21,6 @@ public class Person {
 
     // Setter / Getter를 롬복 쓰지 말고 생성하시오.
     // 다 하신 분들은 PersonLombok으로 가셔서
-
     public String getName() {
         return name;
     }
@@ -32,5 +31,14 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    // toString()을 정의해야 합니다. alt + insert
+
+    @Override
+    public String toString() {
+        return
+                "이름 : " + name + '\n' +
+                "나이 : " + age;
     }
 }
